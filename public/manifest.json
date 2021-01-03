@@ -1,0 +1,6 @@
+{
+  "short_name": "Power web",
+  "name": "Power web",
+  "start_url": ".",
+  "display": "standalone"
+}
