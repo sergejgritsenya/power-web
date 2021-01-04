@@ -4,7 +4,7 @@ import React, { FC } from "react"
 import { HeaderLink } from "./header-link"
 
 type THeaderMenuItemProps = {
-  label: string | React.ReactNode
+  label: string
   link: string
 }
 export const HeaderMenuItem: FC<THeaderMenuItemProps> = ({ label, link }) => {
@@ -19,47 +19,43 @@ export const HeaderMenuItem: FC<THeaderMenuItemProps> = ({ label, link }) => {
     </div>
   )
 }
-HeaderMenuItem.displayName = "HeaderMenuItem"
 
-const useStyles = makeStyles(
-  (theme) => {
-    return {
-      root: {
-        height: "100%",
-        [theme.breakpoints.only("xs")]: {
-          "& + $root": {
-            marginTop: "12px",
-          },
-        },
-        [theme.breakpoints.up("md")]: {
-          position: "relative",
-          "&:hover": {
-            "& $link": {
-              color: theme.palette.primary.main,
-              textDecoration: "none",
-            },
-          },
+const useStyles = makeStyles((theme) => {
+  return {
+    root: {
+      height: "100%",
+      [theme.breakpoints.only("xs")]: {
+        "& + $root": {
+          marginTop: "12px",
         },
       },
-      link: {
-        height: "100%",
-        padding: "0 8px",
-        color: theme.palette.secondary.main,
-        display: "flex",
-        alignItems: "center",
+      [theme.breakpoints.up("md")]: {
         position: "relative",
-        [theme.breakpoints.up("md")]: {
-          padding: "0 12px 0 24px",
-          "&:hover": {
+        "&:hover": {
+          "& $link": {
             color: theme.palette.primary.main,
             textDecoration: "none",
           },
         },
       },
-      text: {
-        ...theme.typography.h5,
+    },
+    link: {
+      height: "100%",
+      padding: "0 8px",
+      color: theme.palette.secondary.main,
+      display: "flex",
+      alignItems: "center",
+      position: "relative",
+      [theme.breakpoints.up("md")]: {
+        padding: "0 12px 0 24px",
+        "&:hover": {
+          color: theme.palette.primary.main,
+          textDecoration: "none",
+        },
       },
-    }
-  },
-  { name: HeaderMenuItem.displayName }
-)
+    },
+    text: {
+      ...theme.typography.h5,
+    },
+  }
+})

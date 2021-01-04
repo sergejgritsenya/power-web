@@ -1,10 +1,8 @@
-import { Link as MuiLink } from "@material-ui/core"
 import { LinkProps as MuiLinkProps } from "@material-ui/core/Link"
 import React, { FC } from "react"
-import { LinkProps as RouterLinkProps } from "react-router-dom"
+import { Link, LinkProps } from "react-router-dom"
 
-type THeaderLinkProps = MuiLinkProps & RouterLinkProps
+type THeaderLinkProps = MuiLinkProps & LinkProps
 export const HeaderLink: FC<THeaderLinkProps> = (props) => {
-  // return <MuiLink component={RouterDomLink as any} {...props} />
-  return <MuiLink {...props} />
+  return <Link {...props} />
 }

@@ -1,7 +1,7 @@
 import { makeStyles, Typography } from "@material-ui/core"
 import clsx from "clsx"
 import React, { FC } from "react"
-import { HeaderLink, HeaderMenuItem, PageInner } from "../../main"
+import { HeaderLink, PageInner } from "../../main"
 
 export const MainMenu: FC = () => {
   const classes = useStyles()
@@ -16,7 +16,7 @@ export const MainMenu: FC = () => {
   )
 }
 type TMainMenuItemProps = {
-  label: string | React.ReactNode
+  label: string
   link: string
 }
 const MainMenuItem: FC<TMainMenuItemProps> = ({ label, link }) => {
@@ -31,60 +31,56 @@ const MainMenuItem: FC<TMainMenuItemProps> = ({ label, link }) => {
     </div>
   )
 }
-HeaderMenuItem.displayName = "HeaderMenuItem"
 
-const useStyles = makeStyles(
-  (theme) => {
-    return {
-      root: {
-        height: "100%",
-        [theme.breakpoints.only("xs")]: {
-          "& + $root": {
-            marginTop: "12px",
-          },
-        },
-        [theme.breakpoints.up("md")]: {
-          position: "relative",
-          "&:hover": {
-            "& $link": {
-              color: theme.palette.primary.main,
-              textDecoration: "none",
-            },
-          },
+const useStyles = makeStyles((theme) => {
+  return {
+    root: {
+      height: "100%",
+      [theme.breakpoints.only("xs")]: {
+        "& + $root": {
+          marginTop: "12px",
         },
       },
-      nav: {
-        display: "flex",
-        justifyContent: "center",
-        marginTop: "180px",
-        [theme.breakpoints.down("sm")]: {
-          flexDirection: "column",
-          alignItems: "center",
-        },
-      },
-      link: {
-        height: "100%",
-        padding: "0 8px",
-        color: theme.palette.secondary.main,
-        display: "flex",
-        alignItems: "center",
+      [theme.breakpoints.up("md")]: {
         position: "relative",
-        [theme.breakpoints.up("md")]: {
-          padding: "0 12px 0 24px",
-          "&:hover": {
+        "&:hover": {
+          "& $link": {
             color: theme.palette.primary.main,
             textDecoration: "none",
           },
         },
       },
-      text: {
-        color: theme.palette.secondary.main,
-        textAlign: "center",
-        fontSize: "35px",
-        whiteSpace: "pre-line",
-        fontWeight: "bold",
+    },
+    nav: {
+      display: "flex",
+      justifyContent: "center",
+      marginTop: "180px",
+      [theme.breakpoints.down("sm")]: {
+        flexDirection: "column",
+        alignItems: "center",
       },
-    }
-  },
-  { name: HeaderMenuItem.displayName }
-)
+    },
+    link: {
+      height: "100%",
+      padding: "0 8px",
+      color: theme.palette.secondary.main,
+      display: "flex",
+      alignItems: "center",
+      position: "relative",
+      [theme.breakpoints.up("md")]: {
+        padding: "0 12px 0 24px",
+        "&:hover": {
+          color: theme.palette.primary.main,
+          textDecoration: "none",
+        },
+      },
+    },
+    text: {
+      color: theme.palette.secondary.main,
+      textAlign: "center",
+      fontSize: "35px",
+      whiteSpace: "pre-line",
+      fontWeight: "bold",
+    },
+  }
+})

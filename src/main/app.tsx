@@ -1,6 +1,7 @@
 import { CssBaseline, ThemeProvider } from "@material-ui/core"
 import { SnackbarProvider } from "notistack"
 import React, { FC, useEffect, useRef } from "react"
+import { BrowserRouter as Router } from "react-router-dom"
 import { useSnack } from "../services"
 import { AppFooter } from "./footer"
 import { AppHeader } from "./header"
@@ -22,9 +23,11 @@ export const App: FC = () => {
         anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
         ref={ref}
       >
-        <AppHeader />
-        <AppMain />
-        <AppFooter />
+        <Router>
+          <AppHeader />
+          <AppMain />
+          <AppFooter />
+        </Router>
       </SnackbarProvider>
     </ThemeProvider>
   )
