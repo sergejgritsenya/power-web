@@ -8,7 +8,11 @@ export const MainPage: FC = () => {
   return (
     <main className={classes.root}>
       <div className={classes.content}>
-        <img src="/static/main.jpg" className={clsx(classes.contentItem, classes.logo)} />
+        <img
+          src="/static/main.jpg"
+          alt="main"
+          className={clsx(classes.contentItem, classes.logo)}
+        />
         <div className={classes.contentItem}>
           <Typography className={clsx(classes.text, classes.textTitle)}>P.O.W.E.R. </Typography>
           <Typography className={classes.text}>

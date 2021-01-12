@@ -19,7 +19,7 @@ export const ShopList: FC<TShopListProps> = ({ shops }) => {
           component="a"
           href={`/shop/${item.id}`}
         >
-          <img src={item.logo || "/static/default-img.png"} className={classes.image} />
+          <img src={item.logo || "/static/default-img.png"} alt="shop" className={classes.image} />
         </Grid>
       ))}
     </Grid>

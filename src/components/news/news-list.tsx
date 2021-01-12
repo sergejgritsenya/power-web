@@ -20,7 +20,11 @@ export const NewsList: FC<TNewsListProps> = ({ news }) => {
           xs={12}
         >
           <Grid item xs={12} md={3}>
-            <img src={item.logo || "/static/default-img.png"} className={classes.image} />
+            <img
+              src={item.logo || "/static/default-img.png"}
+              alt="news"
+              className={classes.image}
+            />
           </Grid>
           <Grid item xs={12} md={9}>
             <Typography className={classes.title}>{item.title}</Typography>

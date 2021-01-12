@@ -29,6 +29,7 @@ export const AppFooter: FC = () => {
             className={clsx(classes.footerItem, classes.footerItemIcon)}
             href={"https://www.youtube.com/channel/UCOE3vmiJp1pUxCxCPOYkkQw"}
             target="_blank"
+            rel="noopener noreferrer"
           >
             <YouTubeIcon className={classes.youtubeIcon} />
           </a>
@@ -69,7 +70,6 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     background: theme.palette.primary.dark,
-
     position: "absolute",
     bottom: "0",
     left: "0",
@@ -92,7 +92,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-
     [theme.breakpoints.down("md")]: {
       "& + $footerItem": {
         marginTop: "12px",

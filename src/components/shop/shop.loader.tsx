@@ -4,7 +4,7 @@ import { useAxios } from "../../services"
 import { Shop } from "./shop"
 import { TShop } from "./types"
 
-export const ShopLoader: FC = ({}) => {
+export const ShopLoader: FC = () => {
   const shop_id = ""
   const axios = useAxios()
   const [state, setState] = useState<TShop | null>(null)

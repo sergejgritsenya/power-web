@@ -11,7 +11,7 @@ export const News: FC<TNewsProps> = ({ news }) => {
   return (
     <Grid container justify="center" spacing={4} className={classes.superRoot}>
       <Grid item xs={12} md={6} className={classes.root}>
-        <img src={news.logo || "/static/default-img.png"} className={classes.logo} />
+        <img src={news.logo || "/static/default-img.png"} alt="news" className={classes.logo} />
       </Grid>
       <Grid item xs={12} md={6} className={classes.root}>
         <div className={classes.text}>

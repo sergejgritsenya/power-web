@@ -11,7 +11,7 @@ export const Shop: FC<TShopProps> = ({ shop }) => {
     <>
       <Grid container justify="center" className={classes.superRoot}>
         <Grid item xs={12} md={6} className={classes.root}>
-          <img src={shop.logo || "/static/default-img.png"} className={classes.logo} />
+          <img src={shop.logo || "/static/default-img.png"} alt="shop" className={classes.logo} />
         </Grid>
         <Grid item xs={12} md={6} className={classes.root}>
           <div className={classes.text}>{shop.description}</div>
@@ -40,11 +40,11 @@ const ImageDialog: FC<TImageDialogProps> = (props) => {
   return (
     <>
       <Button onClick={() => setOpen(true)}>
-        <img src={url} className={classes.image} />
+        <img src={url} alt="shop" className={classes.image} />
       </Button>
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogContent>
-          <img src={url} alt={"logo"} {...{ loading: "lazy" }} className={classes.fullImg} />
+          <img src={url} alt="logo" {...{ loading: "lazy" }} className={classes.fullImg} />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpen(false)} className={classes.button}>

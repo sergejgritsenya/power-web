@@ -10,7 +10,11 @@ export const Tournament: FC<TTournamentProps> = ({ tournament }) => {
   return (
     <Grid container justify="center" className={classes.superRoot}>
       <Grid item xs={12} md={6} className={classes.root}>
-        <img src={tournament.logo || "/static/default-img.png"} className={classes.logo} />
+        <img
+          src={tournament.logo || "/static/default-img.png"}
+          alt="logo"
+          className={classes.logo}
+        />
       </Grid>
       <Grid item xs={12} md={6} className={classes.root}>
         <div className={classes.text}>{tournament.description}</div>
@@ -49,11 +53,11 @@ const ImageDialog: FC<TImageDialogProps> = (props) => {
   return (
     <>
       <Button onClick={() => setOpen(true)}>
-        <img src={url} className={classes.image} />
+        <img src={url} alt="tournament" className={classes.image} />
       </Button>
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogContent>
-          <img src={url} alt={"logo"} {...{ loading: "lazy" }} className={classes.fullImg} />
+          <img src={url} alt="logo" {...{ loading: "lazy" }} className={classes.fullImg} />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpen(false)} className={classes.button} color="default">

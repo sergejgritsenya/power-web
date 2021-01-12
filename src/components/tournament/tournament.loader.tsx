@@ -4,7 +4,7 @@ import { useAxios } from "../../services"
 import { Tournament } from "./tournament"
 import { TTournament } from "./types"
 
-export const TournamentLoader: FC = ({}) => {
+export const TournamentLoader: FC = () => {
   const tournament_id = ""
   const axios = useAxios()
   const [state, setState] = useState<TTournament | null>(null)

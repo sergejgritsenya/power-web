@@ -19,7 +19,11 @@ export const TournamentList: FC<TTournamentListProps> = ({ tournaments }) => {
           component="a"
           href={`/tournaments/${item.id}`}
         >
-          <img src={item.logo || "/static/default-img.png"} className={classes.image} />
+          <img
+            src={item.logo || "/static/default-img.png"}
+            alt="tournament"
+            className={classes.image}
+          />
         </Grid>
       ))}
     </Grid>
