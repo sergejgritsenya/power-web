@@ -27,7 +27,6 @@ export const AppMain: FC = () => {
             <NotFound />
           </Route>
         </Switch>
-        {/* {route.routes ? <DataRoutes routes={route.routes} /> : <NotFound />} */}
       </PageInner>
     </main>
   )
