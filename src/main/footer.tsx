@@ -2,7 +2,6 @@ import { makeStyles, Typography } from "@material-ui/core"
 import YouTubeIcon from "@material-ui/icons/YouTube"
 import clsx from "clsx"
 import React, { FC } from "react"
-import { PageInner } from "./page-inner"
 
 export const AppFooter: FC = () => {
   const classes = useStyles()
@@ -11,7 +10,7 @@ export const AppFooter: FC = () => {
     <>
       <div className={classes.stub} />
       <footer className={clsx(classes.root, classes.stub)}>
-        <PageInner className={classes.inner}>
+        <div className={classes.footerContent}>
           <div className={classes.footerItem}>
             <Typography className={classes.text}>Contact us:</Typography>
             <Typography
@@ -42,7 +41,7 @@ export const AppFooter: FC = () => {
               consent of its respective owner is prohibited.
             </Typography>
           </div>
-        </PageInner>
+        </div>
       </footer>
     </>
   )
@@ -76,16 +75,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     padding: "15px 0",
   },
-  inner: {
-    paddingBottom: 0,
-    paddingTop: 0,
-    display: "flex",
-    justifyContent: "space-between",
-    height: "100%",
-    [theme.breakpoints.down("md")]: {
-      flexDirection: "column",
-    },
-  },
   footerItem: {
     flex: "1 1 100%",
     display: "flex",
@@ -114,5 +103,11 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.main,
     fontSize: "15px",
     textAlign: "center",
+  },
+  footerContent: {
+    display: "flex",
+    justifyContent: "center",
+    maxWidth: "1200px",
+    margin: "0 auto",
   },
 }))

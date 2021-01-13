@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     background: theme.palette.primary.light,
     minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   logo: {
     width: "290px",

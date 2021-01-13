@@ -1,17 +1,15 @@
 import { makeStyles, Typography } from "@material-ui/core"
 import clsx from "clsx"
 import React, { FC } from "react"
-import { HeaderLink, PageInner } from "../../main"
+import { HeaderLink } from "../../main"
 
 export const MainMenu: FC = () => {
   const classes = useStyles()
   return (
-    <nav>
-      <PageInner className={classes.nav}>
-        <MainMenuItem label="News" link="/news"></MainMenuItem>
-        <MainMenuItem label="Tournaments" link="/tournaments"></MainMenuItem>
-        <MainMenuItem label="Shop" link="/shop"></MainMenuItem>
-      </PageInner>
+    <nav className={classes.nav}>
+      <MainMenuItem label="News" link="/news" />
+      <MainMenuItem label="Tournaments" link="/tournaments"></MainMenuItem>
+      <MainMenuItem label="Shop" link="/shop"></MainMenuItem>
     </nav>
   )
 }
@@ -35,14 +33,14 @@ const MainMenuItem: FC<TMainMenuItemProps> = ({ label, link }) => {
 const useStyles = makeStyles((theme) => {
   return {
     root: {
-      height: "100%",
+      // height: "100%",
       [theme.breakpoints.only("xs")]: {
         "& + $root": {
           marginTop: "12px",
         },
       },
       [theme.breakpoints.up("md")]: {
-        position: "relative",
+        // position: "relative",
         "&:hover": {
           "& $link": {
             color: theme.palette.primary.main,
@@ -54,7 +52,8 @@ const useStyles = makeStyles((theme) => {
     nav: {
       display: "flex",
       justifyContent: "center",
-      marginTop: "180px",
+      // marginTop: "180px",
+      marginBottom: "32px",
       [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
         alignItems: "center",
@@ -66,7 +65,7 @@ const useStyles = makeStyles((theme) => {
       color: theme.palette.secondary.main,
       display: "flex",
       alignItems: "center",
-      position: "relative",
+      // position: "relative",
       [theme.breakpoints.up("md")]: {
         padding: "0 12px 0 24px",
         "&:hover": {
@@ -77,7 +76,7 @@ const useStyles = makeStyles((theme) => {
     },
     text: {
       color: theme.palette.secondary.main,
-      textAlign: "center",
+      // textAlign: "center",
       fontSize: "35px",
       whiteSpace: "pre-line",
       fontWeight: "bold",

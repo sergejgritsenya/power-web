@@ -1,7 +1,6 @@
 import { makeStyles } from "@material-ui/core"
 import clsx from "clsx"
 import React, { FC } from "react"
-import { PageInner } from "../page-inner"
 import { HeaderMenu } from "./header-menu"
 
 export const AppHeader: FC = () => {
@@ -10,12 +9,10 @@ export const AppHeader: FC = () => {
     <>
       <div className={classes.size} />
       <header className={clsx(classes.root, classes.size)}>
-        <PageInner>
-          <div className={classes.left}>
-            {/* <HeaderLogo /> */}
-            <HeaderMenu />
-          </div>
-        </PageInner>
+        <div className={classes.left}>
+          {/* <HeaderLogo /> */}
+          <HeaderMenu />
+        </div>
       </header>
     </>
   )
