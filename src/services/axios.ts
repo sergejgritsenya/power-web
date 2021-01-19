@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from "axios"
 
 class AxiosService {
   private axios: AxiosInstance
-  private baseUrl = process.env.API_URL || "http://localhost:3088/api"
+  private baseUrl = process.env.REACT_APP_API_URL || "http://localhost:3088/api"
   private static instance: AxiosService
 
   private constructor() {

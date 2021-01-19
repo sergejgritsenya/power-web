@@ -1,18 +1,15 @@
-FROM node:13-slim
-
-ENV NODE_ENV=production
-ENV APP_NAME=web
-WORKDIR /app
-
-COPY package.json yarn.lock tsconfig.json /app/
-
-RUN yarn install --production=false --ignore-scripts
-
-COPY ./public /app/public
-COPY ./src /app/src
-
+FROM node:12.16.2 as build
+ARG API_URL=http://localhost:3088
+WORKDIR /usr/src/app
+COPY package.json yarn.lock tsconfig.json ./
+RUN yarn
+COPY . ./
+ENV REACT_APP_API_URL=${API_URL}
 RUN yarn build
 
-EXPOSE 3000
 
-CMD ["yarn", "start"]
+FROM nginx:alpine
+COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /usr/src/app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx","-g","daemon off;"]
