@@ -1,23 +1,24 @@
 import React, { FC, useEffect, useState } from "react"
-import { news_root_routes } from "../../main"
 import { useAxios } from "../../services"
-import { NoElements } from "../common"
+import { Locker, news_routes } from "../common"
 import { NewsList } from "./news-list"
 import { TNewsList } from "./types"
 
 export const NewsListLoader: FC = () => {
   const axios = useAxios()
-  const [state, setState] = useState<TNewsList[] | null>(null)
+  const [state, setState] = useState<TNewsList | null>(null)
+
   const load = async () => {
-    const res = await axios.post<undefined, TNewsList[]>({ url: news_root_routes.list })
+    const res = await axios.makeRequest<TNewsList>(news_routes.root)
     setState(res)
   }
+
   useEffect(() => {
     load()
   }, [])
-
-  if (!state || !state.length) {
-    return <NoElements />
+  if (!state) {
+    return <Locker />
   }
+
   return <NewsList news={state} />
 }

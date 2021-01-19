@@ -4,12 +4,12 @@ import React, { FC } from "react"
 import { HeaderMenu } from "./header-menu"
 
 export const AppHeader: FC = () => {
-  const classes = useStyles()
+  const { left, root, size } = useStyles()
   return (
     <>
-      <div className={classes.size} />
-      <header className={clsx(classes.root, classes.size)}>
-        <div className={classes.left}>
+      <div className={size} />
+      <header className={clsx(root, size)}>
+        <div className={left}>
           {/* <HeaderLogo /> */}
           <HeaderMenu />
         </div>

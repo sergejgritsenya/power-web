@@ -1,31 +1,29 @@
 import { makeStyles } from "@material-ui/core"
 import React, { FC } from "react"
-import { HeaderMenuItem } from "./header-item"
+import { HeaderLink } from "./header-link"
 
 export const HeaderMenu: FC = () => {
-  const classes = useStyles()
+  const { root } = useStyles()
   return (
-    <nav className={classes.root}>
-      <HeaderMenuItem label="P.O.W.E.R" link="/"></HeaderMenuItem>
-      <HeaderMenuItem label="News" link="/news"></HeaderMenuItem>
-      <HeaderMenuItem label="Tournaments" link="/tournaments"></HeaderMenuItem>
-      <HeaderMenuItem label="Shop" link="/shop"></HeaderMenuItem>
+    <nav className={root}>
+      <HeaderLink label="P.O.W.E.R" link="/"></HeaderLink>
+      <HeaderLink label="News" link="/news"></HeaderLink>
+      <HeaderLink label="Tournaments" link="/tournaments"></HeaderLink>
+      <HeaderLink label="Shop" link="/shop"></HeaderLink>
     </nav>
   )
 }
 
-const useStyles = makeStyles((theme) => {
-  return {
-    root: {
-      height: "100%",
-      width: "100%",
-      display: "flex",
-      justifyContent: "center",
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: "100%",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
       alignItems: "center",
-      [theme.breakpoints.down("xs")]: {
-        flexDirection: "column",
-        alignItems: "center",
-      },
     },
-  }
-})
+  },
+}))

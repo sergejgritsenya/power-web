@@ -1,31 +1,20 @@
 import { makeStyles, Typography } from "@material-ui/core"
-import clsx from "clsx"
 import React, { FC } from "react"
-import { HeaderLink } from "../../main"
+import { Link } from "react-router-dom"
 
-export const MainMenu: FC = () => {
-  const classes = useStyles()
-  return (
-    <nav className={classes.nav}>
-      <MainMenuItem label="News" link="/news" />
-      <MainMenuItem label="Tournaments" link="/tournaments"></MainMenuItem>
-      <MainMenuItem label="Shop" link="/shop"></MainMenuItem>
-    </nav>
-  )
-}
 type TMainMenuItemProps = {
   label: string
   link: string
 }
-const MainMenuItem: FC<TMainMenuItemProps> = ({ label, link }) => {
-  const classes = useStyles()
+export const MainLink: FC<TMainMenuItemProps> = ({ label, link }) => {
+  const { menu_link, root, text } = useStyles()
   return (
-    <div className={clsx(classes.root)}>
-      <HeaderLink to={link} className={clsx(classes.link)}>
-        <Typography className={classes.text} component="div">
+    <div className={root}>
+      <Link to={link} className={menu_link}>
+        <Typography className={text} component="div">
           {label}
         </Typography>
-      </HeaderLink>
+      </Link>
     </div>
   )
 }
@@ -49,17 +38,7 @@ const useStyles = makeStyles((theme) => {
         },
       },
     },
-    nav: {
-      display: "flex",
-      justifyContent: "center",
-      // marginTop: "180px",
-      marginBottom: "32px",
-      [theme.breakpoints.down("sm")]: {
-        flexDirection: "column",
-        alignItems: "center",
-      },
-    },
-    link: {
+    menu_link: {
       height: "100%",
       padding: "0 8px",
       color: theme.palette.secondary.main,

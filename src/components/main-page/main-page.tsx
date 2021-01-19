@@ -4,23 +4,19 @@ import React, { FC } from "react"
 import { MainMenu } from "./main-menu"
 
 export const MainPage: FC = () => {
-  const classes = useStyles()
+  const { content, contentItem, logo, root, text, textFooter, textTitle } = useStyles()
   return (
-    <main className={classes.root}>
-      <div className={classes.content}>
-        <img
-          src="/static/main.jpg"
-          alt="main"
-          className={clsx(classes.contentItem, classes.logo)}
-        />
-        <div className={classes.contentItem}>
-          <Typography className={clsx(classes.text, classes.textTitle)}>P.O.W.E.R. </Typography>
-          <Typography className={classes.text}>
+    <main className={root}>
+      <div className={content}>
+        <img src="/static/main.jpg" alt="main" className={clsx(contentItem, logo)} />
+        <div className={contentItem}>
+          <Typography className={clsx(text, textTitle)}>P.O.W.E.R.</Typography>
+          <Typography className={text}>
             {"Promotion of Olympic Wrestling \n in European Region"}
           </Typography>
         </div>
       </div>
-      <Typography component="div" className={clsx(classes.text, classes.textFooter)}>
+      <Typography component="div" className={clsx(text, textFooter)}>
         by Classic Sport LLC
       </Typography>
       <MainMenu />
@@ -31,22 +27,22 @@ export const MainPage: FC = () => {
 const useStyles = makeStyles((theme) => ({
   root: {
     background: theme.palette.primary.light,
-    minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    minHeight: "100vh",
   },
   logo: {
-    width: "290px",
     marginRight: "134px",
+    width: "290px",
     [theme.breakpoints.down("sm")]: {
       marginRight: 0,
     },
   },
   text: {
     color: theme.palette.secondary.main,
-    textAlign: "center",
     fontSize: "21px",
+    textAlign: "center",
     whiteSpace: "pre-line",
   },
   textTitle: {
@@ -62,8 +58,8 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
     gridGap: "70px",
+    gridTemplateColumns: "1fr 1fr",
     paddingTop: "20vh",
     [theme.breakpoints.down("sm")]: {
       paddingTop: "0vh",

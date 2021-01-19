@@ -1,17 +1,13 @@
-export type TTournamentVideo = {
+type TMedia = {
   id: string
   url: string
 }
 
-export type TTournamentImage = {
-  id: string
-  url: string
-}
 export type TTournament = {
   id: string
   name: string
   logo: string | null
   description: string
-  videos: TTournamentVideo[]
-  images: TTournamentImage[]
+  videos: TMedia[]
+  images: TMedia[]
 }

@@ -13,9 +13,9 @@ import {
 import { NotFound } from "./not-found"
 
 export const AppMain: FC = () => {
-  const classes = useStyles()
+  const { root } = useStyles()
   return (
-    <main className={classes.root}>
+    <main className={root}>
       <Switch>
         <Route exact path="/">
           <MainPage />
@@ -23,19 +23,19 @@ export const AppMain: FC = () => {
         <Route exact path="/news">
           <NewsListLoader />
         </Route>
-        <Route path="/news/:id">
+        <Route path="/news/:news_id">
           <NewsLoader />
         </Route>
         <Route exact path="/tournaments">
           <TournamentListLoader />
         </Route>
-        <Route path="/tournaments/:id">
+        <Route path="/tournaments/:tournament_id">
           <TournamentLoader />
         </Route>
         <Route exact path="/shop">
           <ShopListLoader />
         </Route>
-        <Route path="/shop/:id">
+        <Route path="/shop/:shop_id">
           <ShopLoader />
         </Route>
         <Route>

@@ -1,42 +1,36 @@
-import { makeStyles, Typography } from "@material-ui/core"
+import { Button, makeStyles, Typography } from "@material-ui/core"
 import React, { FC } from "react"
-import { ButtonLink } from "./button-link"
+import { Link } from "react-router-dom"
 
 export const HeaderLogo: FC = () => {
-  const classes = useStyles()
+  const { root, text } = useStyles()
   return (
-    <ButtonLink variant="text" color="inherit" to="/" className={classes.root}>
-      <Typography className={classes.text} component="div">
+    <Button component={Link} variant="text" color="inherit" to="/" className={root}>
+      <Typography className={text} component="div">
         P.O.W.E.R.
       </Typography>
-    </ButtonLink>
+    </Button>
   )
 }
-HeaderLogo.displayName = "HeaderLogo"
 
-const useStyles = makeStyles(
-  (theme) => {
-    return {
-      root: {
-        height: "100%",
-        [theme.breakpoints.up("sm")]: {
-          marginRight: "106px",
-        },
-      },
-      img: {
-        height: "12px",
-        [theme.breakpoints.up("sm")]: {
-          height: "20px",
-        },
-      },
-      text: {
-        color: theme.palette.secondary.main,
-        ...theme.typography.subtitle1,
-        [theme.breakpoints.up("md")]: {
-          ...theme.typography.h5,
-        },
-      },
-    }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: "100%",
+    [theme.breakpoints.up("sm")]: {
+      marginRight: "106px",
+    },
   },
-  { name: HeaderLogo.displayName }
-)
+  img: {
+    height: "12px",
+    [theme.breakpoints.up("sm")]: {
+      height: "20px",
+    },
+  },
+  text: {
+    color: theme.palette.secondary.main,
+    ...theme.typography.subtitle1,
+    [theme.breakpoints.up("md")]: {
+      ...theme.typography.h5,
+    },
+  },
+}))

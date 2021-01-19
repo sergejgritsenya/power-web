@@ -6,10 +6,8 @@ export const NoElements: FC = () => {
   return <h1 className={root}>No elements found :(</h1>
 }
 
-const useStyles = makeStyles(() => {
-  return {
-    root: {
-      margin: "auto",
-    },
-  }
-})
+const useStyles = makeStyles(() => ({
+  root: {
+    margin: "auto",
+  },
+}))

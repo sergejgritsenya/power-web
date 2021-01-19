@@ -1,4 +1,4 @@
-export type TShopImage = {
+type TShopImage = {
   id: string
   url: string
 }

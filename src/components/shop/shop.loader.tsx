@@ -1,23 +1,26 @@
 import React, { FC, useEffect, useState } from "react"
-import { shop_routes } from "../../main"
+import { useParams } from "react-router-dom"
 import { useAxios } from "../../services"
+import { Locker, shop_routes } from "../common"
 import { Shop } from "./shop"
 import { TShop } from "./types"
 
 export const ShopLoader: FC = () => {
-  const shop_id = ""
+  const { shop_id } = useParams<any>()
   const axios = useAxios()
   const [state, setState] = useState<TShop | null>(null)
+
   const load = async () => {
-    const res = await axios.post<undefined, TShop>({ url: `${shop_routes.get}/${shop_id}` })
+    const res = await axios.makeRequest<TShop>(shop_routes.get(shop_id))
     setState(res)
   }
+
   useEffect(() => {
     load()
   }, [])
-
   if (!state) {
-    return null
+    return <Locker />
   }
+
   return <Shop shop={state} />
 }

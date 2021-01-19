@@ -4,40 +4,48 @@ import clsx from "clsx"
 import React, { FC } from "react"
 
 export const AppFooter: FC = () => {
-  const classes = useStyles()
+  const {
+    footerContent,
+    footerItem,
+    footerItemIcon,
+    root,
+    stub,
+    text,
+    youtubeIcon,
+  } = useStyles()
   const yearNow = new Date().getFullYear()
   return (
     <>
-      <div className={classes.stub} />
-      <footer className={clsx(classes.root, classes.stub)}>
-        <div className={classes.footerContent}>
-          <div className={classes.footerItem}>
-            <Typography className={classes.text}>Contact us:</Typography>
+      <div className={stub} />
+      <footer className={clsx(root, stub)}>
+        <div className={footerContent}>
+          <div className={footerItem}>
+            <Typography className={text}>Contact us:</Typography>
             <Typography
-              className={classes.text}
+              className={text}
               component="a"
               href={"mailto:pilipenko.wrestling@gmail.com"}
             >
               pilipenko.wrestling@gmail.com
             </Typography>
-            <Typography component="a" href="tel:+1 718 509 5655" className={classes.text}>
+            <Typography component="a" href="tel:+1 718 509 5655" className={text}>
               +1 718 509 5655
             </Typography>
           </div>
           <a
-            className={clsx(classes.footerItem, classes.footerItemIcon)}
+            className={clsx(footerItem, footerItemIcon)}
             href={"https://www.youtube.com/channel/UCOE3vmiJp1pUxCxCPOYkkQw"}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <YouTubeIcon className={classes.youtubeIcon} />
+            <YouTubeIcon className={youtubeIcon} />
           </a>
-          <div className={classes.footerItem}>
-            <Typography className={classes.text}>© {yearNow}. All rights reserved.</Typography>
-            <Typography className={classes.text}>
+          <div className={footerItem}>
+            <Typography className={text}>© {yearNow}. All rights reserved.</Typography>
+            <Typography className={text}>
               Use and/or distribution of any content without written{" "}
             </Typography>
-            <Typography className={classes.text}>
+            <Typography className={text}>
               consent of its respective owner is prohibited.
             </Typography>
           </div>
