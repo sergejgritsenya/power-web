@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core"
 import clsx from "clsx"
 import React, { FC } from "react"
+import { ChangeLanguage } from "./change-language"
 import { HeaderMenu } from "./header-menu"
 
 export const AppHeader: FC = () => {
@@ -12,6 +13,7 @@ export const AppHeader: FC = () => {
         <div className={left}>
           {/* <HeaderLogo /> */}
           <HeaderMenu />
+          <ChangeLanguage />
         </div>
       </header>
     </>

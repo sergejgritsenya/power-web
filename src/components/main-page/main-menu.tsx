@@ -1,14 +1,16 @@
 import { makeStyles } from "@material-ui/core"
-import React, { FC } from "react"
+import React, { FC, useContext } from "react"
+import { LanguageCtx, localizations, TLanguageCtx } from "../../main"
 import { MainLink } from "./main-link"
 
 export const MainMenu: FC = () => {
   const { nav } = useStyles()
+  const { i18n } = useContext<TLanguageCtx>(LanguageCtx)
   return (
     <nav className={nav}>
-      <MainLink label="News" link="/news" />
-      <MainLink label="Tournaments" link="/tournaments" />
-      <MainLink label="Shop" link="/shop" />
+      <MainLink label={localizations.news[i18n]} link="/news" />
+      <MainLink label={localizations.tournaments[i18n]} link="/tournaments" />
+      <MainLink label={localizations.shop[i18n]} link="/shop" />
     </nav>
   )
 }
