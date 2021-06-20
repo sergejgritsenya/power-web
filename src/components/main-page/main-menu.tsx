@@ -9,6 +9,7 @@ export const MainMenu: FC = () => {
   return (
     <nav className={nav}>
       <MainLink label={localizations.news[i18n]} link="/news" />
+      <MainLink label={localizations.gallery[i18n]} link="/gallery" />
       <MainLink label={localizations.tournaments[i18n]} link="/tournaments" />
       <MainLink label={localizations.shop[i18n]} link="/shop" />
     </nav>

@@ -1,18 +1,13 @@
 import { makeStyles, Typography } from "@material-ui/core"
 import YouTubeIcon from "@material-ui/icons/YouTube"
 import clsx from "clsx"
-import React, { FC } from "react"
+import React, { FC, useContext } from "react"
+import { LanguageCtx, localizations, TLanguageCtx } from "./i18n"
 
 export const AppFooter: FC = () => {
-  const {
-    footerContent,
-    footerItem,
-    footerItemIcon,
-    root,
-    stub,
-    text,
-    youtubeIcon,
-  } = useStyles()
+  const { footerContent, footerItem, footerItemIcon, root, stub, text, youtubeIcon } =
+    useStyles()
+  const { i18n } = useContext<TLanguageCtx>(LanguageCtx)
   const yearNow = new Date().getFullYear()
   return (
     <>
@@ -20,7 +15,7 @@ export const AppFooter: FC = () => {
       <footer className={clsx(root, stub)}>
         <div className={footerContent}>
           <div className={footerItem}>
-            <Typography className={text}>Contact us:</Typography>
+            <Typography className={text}>{localizations.contactUs[i18n]}</Typography>
             <Typography
               className={text}
               component="a"
@@ -41,12 +36,8 @@ export const AppFooter: FC = () => {
             <YouTubeIcon className={youtubeIcon} />
           </a>
           <div className={footerItem}>
-            <Typography className={text}>© {yearNow}. All rights reserved.</Typography>
             <Typography className={text}>
-              Use and/or distribution of any content without written{" "}
-            </Typography>
-            <Typography className={text}>
-              consent of its respective owner is prohibited.
+              © {yearNow}. {localizations.rights[i18n]}
             </Typography>
           </div>
         </div>

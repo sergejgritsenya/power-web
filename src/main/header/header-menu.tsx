@@ -10,6 +10,7 @@ export const HeaderMenu: FC = () => {
     <nav className={root}>
       <HeaderLink label="P.O.W.E.R" link="/"></HeaderLink>
       <HeaderLink label={localizations.news[i18n]} link="/news"></HeaderLink>
+      <HeaderLink label={localizations.gallery[i18n]} link="/gallery"></HeaderLink>
       <HeaderLink
         label={localizations.tournaments[i18n]}
         link="/tournaments"

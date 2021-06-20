@@ -2,13 +2,14 @@ import { makeStyles } from "@material-ui/core"
 import React, { FC } from "react"
 import { Route, Switch } from "react-router-dom"
 import {
+  GalleryListLoader,
   MainPage,
   NewsListLoader,
   NewsLoader,
   ShopListLoader,
   ShopLoader,
   TournamentListLoader,
-  TournamentLoader,
+  TournamentLoader
 } from "../components"
 import { NotFound } from "./not-found"
 
@@ -22,6 +23,9 @@ export const AppMain: FC = () => {
         </Route>
         <Route exact path="/news">
           <NewsListLoader />
+        </Route>
+        <Route exact path="/gallery">
+          <GalleryListLoader />
         </Route>
         <Route path="/news/:news_id">
           <NewsLoader />

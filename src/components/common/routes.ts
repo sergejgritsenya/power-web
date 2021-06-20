@@ -1,3 +1,7 @@
+export const gallery_routes = {
+  root: "/gallery",
+}
+
 export const news_routes = {
   root: "/news",
   get: (id: string) => `/news/${id}`,
